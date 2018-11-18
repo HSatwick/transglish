@@ -1,0 +1,25 @@
+<div class="mat-card">
+  <form (ngSubmit)="translate_sentence()" #sentenceForm="ngForm">
+    <span class="mat-card-title">Enter the Sentence you want to trasnlate into English</span>
+    <div *ngIf="enpty_string_flag">
+        <mat-chip-list>
+          <mat-chip color="warn" selected [removable]="removable">Cannot have empty string
+              <mat-icon matChipRemove *ngIf="removable" (click)="remove_chip()">cancel</mat-icon>
+          </mat-chip>
+        </mat-chip-list>
+    </div>
+    <div class="sentence-container">
+        <mat-form-field>  
+            <textarea matInput placeholder="Textarea" 
+              maxlength="1000"
+              [(ngModel)]="sentence.original_sentc" 
+              #original_sentc = "ngModel"
+              name="original_sentc"
+              id="original_sentc"
+              required></textarea>
+          </mat-form-field>
+    </div>
+    <button mat-stroked-button color="accent" type="submit" [disabled]="!sentenceForm.form.valid">Submit</button>
+    <a routerLink="/" mat-button color="warn">Back</a>
+  </form>
+</div>

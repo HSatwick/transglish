@@ -1,0 +1,36 @@
+<div class="card-size">
+    <table mat-table [dataSource]="data" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> <b>ID</b> </th>
+          <td mat-cell *matCellDef="let element"> 
+            <a routerLink="/detail-sentence/{{element.id}}" mat-mini-fab>{{element.id}} </a>
+          </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="orig_sent">
+          <th mat-header-cell *matHeaderCellDef> <b>Original Sentence</b> </th>
+          <td mat-cell *matCellDef="let element" class="word-wrap"> 
+            {{element.original_sentc | wordCount:30 }} 
+          </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="lang">
+          <th mat-header-cell *matHeaderCellDef> <b>Language</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.language}} </td>
+        </ng-container>
+          
+        <ng-container matColumnDef="eng_trs">
+          <th mat-header-cell *matHeaderCellDef> <b>English Translation</b> </th>
+          <td mat-cell *matCellDef="let element" class="word-wrap"> {{element.english_sentc | wordCount:30 }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="created">
+          <th mat-header-cell *matHeaderCellDef> <b>Created</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.created | date}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+      </table>
+</div>

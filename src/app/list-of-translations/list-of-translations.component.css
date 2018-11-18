@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+}
+
+.card-size {
+    height: 550px;
+}
+
+.word-wrap{
+    white-space: pre-line;
+}
+
